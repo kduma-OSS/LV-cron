@@ -99,9 +99,9 @@ class CronCommand extends Command {
 
             array('tries', null, InputOption::VALUE_OPTIONAL, 'Number of times to attempt a job before logging it failed', 0),
 
-            array('timelimit', 't', InputOption::VALUE_OPTIONAL, 'A time limited to run all commands in seconds.', 60),
+            array('timelimit', 't', InputOption::VALUE_OPTIONAL, 'Maximum time this command can work in seconds.', 60),
 
-            array('runlimit', 'r', InputOption::VALUE_OPTIONAL, 'Maximum runs.', null),
+            array('runlimit', 'r', InputOption::VALUE_OPTIONAL, 'Maximum queue jobs to run in. (default: no limit)', null),
         );
     }
 
