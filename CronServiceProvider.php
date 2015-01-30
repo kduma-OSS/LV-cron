@@ -1,7 +1,5 @@
 <?php namespace KDuma\Cron;
 
-use App\Providers\Cron\CronCommand;
-use App\Providers\Cron\CronWorker;
 use Illuminate\Support\ServiceProvider;
 
 class CronServiceProvider extends ServiceProvider {
