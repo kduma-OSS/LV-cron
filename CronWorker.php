@@ -4,9 +4,23 @@ namespace KDuma\Cron;
 
 use Illuminate\Queue\Worker as Worker;
 
+/**
+ * Class CronWorker
+ * @package KDuma\Cron
+ */
 class CronWorker extends Worker
 {
 
+    /**
+     * @param $connectionName
+     * @param null $queue
+     * @param int $delay
+     * @param int $sleep
+     * @param int $maxTries
+     * @param int|null $timelimit
+     * @param int|null $runlimit
+     * @throws \Exception
+     */
     public function cron($connectionName, $queue = null, $delay = 0, $sleep = 3, $maxTries = 0, $timelimit = 60, $runlimit = null)
     {
         if(is_null($timelimit) && is_null($runlimit)){
