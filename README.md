@@ -40,3 +40,6 @@ In your routes file add:
     });
 
 Replace `YOUR_SECRET` and `YOU_TIME_LIMIT` with your values.
+
+# Packagist
+View this package on Packagist.org: [kduma/cron](https://packagist.org/packages/kduma/cron)
