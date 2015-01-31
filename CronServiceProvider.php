@@ -2,6 +2,10 @@
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class CronServiceProvider
+ * @package KDuma\Cron
+ */
 class CronServiceProvider extends ServiceProvider {
 
 	/**

@@ -6,6 +6,10 @@ use Illuminate\Contracts\Queue\Job;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
+/**
+ * Class CronCommand
+ * @package KDuma\Cron
+ */
 class CronCommand extends Command {
 
     /**
@@ -20,7 +24,7 @@ class CronCommand extends Command {
      *
      * @var string
      */
-    protected $description = 'Process queue';
+    protected $description = 'Process queue jobs with time or job limit.';
 
     /**
      * The queue worker instance.
@@ -62,9 +66,13 @@ class CronCommand extends Command {
         );
 
         $this->worker->cron(
-            $connection, $queue, $delay,
-            $this->option('sleep'), $this->option('tries'),
-            $this->option('timelimit'), $this->option('runlimit')
+            $connection,
+            $queue,
+            $delay,
+            $this->option('sleep'),
+            $this->option('tries'),
+            $this->option('timelimit'),
+            $this->option('runlimit')
         );
     }
 
