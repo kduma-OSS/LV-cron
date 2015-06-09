@@ -29,15 +29,14 @@ class CronCommand extends Command {
     /**
      * The queue worker instance.
      *
-     * @var \Illuminate\Queue\Worker
+     * @var Worker
      */
     protected $worker;
 
     /**
      * Create a new queue listen command.
      *
-     * @param  \Illuminate\Queue\Worker  $worker
-     * @return void
+     * @param  Worker $worker
      */
     public function __construct(Worker $worker)
     {
@@ -84,9 +83,9 @@ class CronCommand extends Command {
      */
     protected function getArguments()
     {
-        return array(
-            array('connection', InputArgument::OPTIONAL, 'The name of connection', null),
-        );
+        return [
+            ['connection', InputArgument::OPTIONAL, 'The name of connection', null],
+        ];
     }
 
     /**
@@ -96,21 +95,15 @@ class CronCommand extends Command {
      */
     protected function getOptions()
     {
-        return array(
-            array('queue', null, InputOption::VALUE_OPTIONAL, 'The queue to listen on'),
-
-            array('delay', null, InputOption::VALUE_OPTIONAL, 'Amount of time to delay failed jobs', 0),
-
-            array('force', null, InputOption::VALUE_NONE, 'Force the worker to run even in maintenance mode'),
-
-            array('sleep', null, InputOption::VALUE_OPTIONAL, 'Number of seconds to sleep when no job is available', 3),
-
-            array('tries', null, InputOption::VALUE_OPTIONAL, 'Number of times to attempt a job before logging it failed', 0),
-
-            array('timelimit', 't', InputOption::VALUE_OPTIONAL, 'Maximum time this command can work in seconds.', 60),
-
-            array('runlimit', 'r', InputOption::VALUE_OPTIONAL, 'Maximum queue jobs to run in. (default: no limit)', null),
-        );
+        return [
+            ['queue', null, InputOption::VALUE_OPTIONAL, 'The queue to listen on'],
+            ['delay', null, InputOption::VALUE_OPTIONAL, 'Amount of time to delay failed jobs', 0],
+            ['force', null, InputOption::VALUE_NONE, 'Force the worker to run even in maintenance mode'],
+            ['sleep', null, InputOption::VALUE_OPTIONAL, 'Number of seconds to sleep when no job is available', 3],
+            ['tries', null, InputOption::VALUE_OPTIONAL, 'Number of times to attempt a job before logging it failed', 0],
+            ['timelimit', 't', InputOption::VALUE_OPTIONAL, 'Maximum time this command can work in seconds.', 60],
+            ['runlimit', 'r', InputOption::VALUE_OPTIONAL, 'Maximum queue jobs to run in. (default: no limit)', null],
+        ];
     }
 
 }

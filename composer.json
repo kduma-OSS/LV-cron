@@ -1,6 +1,6 @@
 {
   "name": "kduma/cron",
-  "description": "Laravel 5 queue runner for webcron (with runtime limit)",
+  "description": "Laravel 5.1 queue runner for webcron (with runtime limit)",
   "keywords": ["laravel", "cron", "queue"],
   "license": "MIT",
   "authors": [
