@@ -3,7 +3,6 @@
 namespace KDuma\Cron;
 
 use Illuminate\Contracts\Console\Kernel;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Symfony\Component\Console\Output\BufferedOutput;
 
