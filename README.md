@@ -10,7 +10,7 @@ Laravel 5.1 queue runner for webcron (with runtime limit)
 # Setup
 Add the package to the require section of your composer.json and run `composer update`
 
-    "kduma/cron": "~1.1"
+    "kduma/cron": "^1.1"
 
 Then add the Service Provider to the providers array in `config/app.php` but not before `Illuminate\Queue\QueueServiceProvider`:
 
