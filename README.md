@@ -1,15 +1,20 @@
 # L5-cron
-Laravel 5.1 queue runner for webcron (with runtime limit)
+[![Latest Stable Version](https://poser.pugx.org/kduma/cron/v/stable.svg)](https://packagist.org/packages/kduma/cron) 
+[![Total Downloads](https://poser.pugx.org/kduma/cron/downloads.svg)](https://packagist.org/packages/kduma/cron) 
+[![Latest Unstable Version](https://poser.pugx.org/kduma/cron/v/unstable.svg)](https://packagist.org/packages/kduma/cron) 
+[![License](https://poser.pugx.org/kduma/cron/license.svg)](https://packagist.org/packages/kduma/cron)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/d4c13dd0-ded4-4d89-82c2-34e30b6eec09/mini.png)](https://insight.sensiolabs.com/projects/d4c13dd0-ded4-4d89-82c2-34e30b6eec09)
+
+Laravel 5 queue runner for webcron (with runtime limit)
 
 # Setup
 Add the package to the require section of your composer.json and run `composer update`
 
-    "kduma/cron": "~1.1"
+    "kduma/cron": "~1.0"
 
 Then add the Service Provider to the providers array in `config/app.php` but not before `Illuminate\Queue\QueueServiceProvider`:
 
-    KDuma\Cron\CronServiceProvider::class,
-    KDuma\Cron\WebCronServiceProvider::class,
+    'KDuma\Cron\CronServiceProvider',
 
 
 # Usage
@@ -30,16 +35,17 @@ Command syntax is like `queue:work --daemon` with 2 new options:
 
 # Web Cron
 
-In your `.env` file add:
+In your routes file add:
 
-    WEBCRON_SECRET=YOUR_SECRET
+    get('cron/{password}', function($secret){
+    	if($secret != 'YOUR_SECRET')
+    		abort(404);
+    	ob_start();
+    	\Artisan::call('queue:cron', array('-t' => YOU_TIME_LIMIT));
+    	return response(ob_get_clean(), 200, ['Content-Type' => 'text/plain; charset=UTF-8']);
+    });
 
-Replace `YOUR_SECRET` with your secret. Now you can run queue by visiting `http://<domain>/cron/YOUR_SECRET` url.
+Replace `YOUR_SECRET` and `YOU_TIME_LIMIT` with your values.
 
-You can also configure time limit and/or run limit using following entries in `.env`:
-
-    WEBCRON_TIMELIMIT=30
-    WEBCRON_RUNLIMIT=25
-    
 # Packagist
 View this package on Packagist.org: [kduma/cron](https://packagist.org/packages/kduma/cron)

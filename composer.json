@@ -18,10 +18,5 @@
       "KDuma\\Cron\\": ""
     }
   },
-  "extra": {
-    "branch-alias": {
-      "dev-develop": "1.0-dev"
-    }
-  },
   "minimum-stability": "dev"
 }
