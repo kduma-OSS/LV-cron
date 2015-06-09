@@ -2,6 +2,7 @@
 namespace KDuma\Cron;
 
 
+use Exception;
 use Illuminate\Queue\Worker as Worker;
 
 /**
@@ -35,7 +36,7 @@ class CronWorker extends Worker
                 $job = $this->getNextJob($connection, $queue);
                 if (is_null($job))
                 {
-                    exit;
+                    return;
                 }
                 $this->process(
                     $this->manager->getName($connectionName), $job, $maxTries, $delay
