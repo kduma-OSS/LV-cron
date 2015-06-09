@@ -30,7 +30,7 @@ class WebCronController extends Controller
      * @param bool $secret
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
-    function WebCron($secret = false){
+    function webCron($secret = false){
         if(config('webcron.secret') === false)
             abort(500, "Webcron secret isn't configured. For security purposes you need to set it.");
 

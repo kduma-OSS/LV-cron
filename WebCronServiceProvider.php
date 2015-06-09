@@ -22,7 +22,7 @@ class WebCronServiceProvider extends ServiceProvider {
         if (! $this->app->routesAreCached()) {
             app('router')->get('cron/{secret?}', [
                 'as' => 'KDuma.cron',
-                'uses' => WebCronController::class.'@WebCron'
+                'uses' => WebCronController::class.'@webCron'
             ]);
         }
 	}
