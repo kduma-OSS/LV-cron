@@ -4,6 +4,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/kduma/cron/v/unstable.svg)](https://packagist.org/packages/kduma/cron) 
 [![License](https://poser.pugx.org/kduma/cron/license.svg)](https://packagist.org/packages/kduma/cron)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/d4c13dd0-ded4-4d89-82c2-34e30b6eec09/mini.png)](https://insight.sensiolabs.com/projects/d4c13dd0-ded4-4d89-82c2-34e30b6eec09)
+[![StyleCI](https://styleci.io/repos/30093554/shield?branch=master)](https://styleci.io/repos/30093554)
 
 Laravel 5.1 queue runner for webcron (with runtime limit)
 
