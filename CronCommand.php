@@ -1,4 +1,6 @@
-<?php namespace KDuma\Cron;
+<?php
+
+namespace KDuma\Cron;
 
 use Illuminate\Queue\Worker;
 use Illuminate\Console\Command;
@@ -6,11 +8,10 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
 /**
- * Class CronCommand
- * @package KDuma\Cron
+ * Class CronCommand.
  */
-class CronCommand extends Command {
-
+class CronCommand extends Command
+{
     /**
      * The console command name.
      *
@@ -74,7 +75,6 @@ class CronCommand extends Command {
         );
     }
 
-
     /**
      * Get the console command arguments.
      *
@@ -104,5 +104,4 @@ class CronCommand extends Command {
             ['runlimit', 'r', InputOption::VALUE_OPTIONAL, 'Maximum queue jobs to run in. (default: no limit)', null],
         ];
     }
-
 }

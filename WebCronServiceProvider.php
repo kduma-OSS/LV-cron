@@ -1,20 +1,21 @@
-<?php namespace KDuma\Cron;
+<?php
+
+namespace KDuma\Cron;
 
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class WebCronServiceProvider
- * @package KDuma\Cron
+ * Class WebCronServiceProvider.
  */
-class WebCronServiceProvider extends ServiceProvider {
-
-	/**
-	 * Bootstrap the application services.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
+class WebCronServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
         $this->publishes([
             __DIR__.'/config.php' => config_path('webcron.php'),
         ]);
@@ -22,20 +23,20 @@ class WebCronServiceProvider extends ServiceProvider {
         if (! $this->app->routesAreCached()) {
             app('router')->get('cron/{secret?}', [
                 'as' => 'KDuma.cron',
-                'uses' => WebCronController::class.'@webCron'
+                'uses' => WebCronController::class.'@webCron',
             ]);
         }
-	}
+    }
 
-	/**
-	 * Register the application services.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
         $this->mergeConfigFrom(
             __DIR__.'/config.php', 'webcron'
         );
-	}
+    }
 }
